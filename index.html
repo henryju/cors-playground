@@ -5,4 +5,28 @@
 <body>
 Hello World!
 </body>
+  <script>
+    var monInit = { method: 'GET',
+               headers: {
+                   'Content-Type': 'image/jpeg'
+               },
+               mode: 'cors',
+               cache: 'default' };
+
+var request = new Request('http://localhost:9000');
+    fetch(request)
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(response => {
+    console.debug(response);
+    // ...
+  }).catch(error => {
+    console.error(error);
+  });
+  </script>
 </html>
