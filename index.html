@@ -13,10 +13,11 @@ Hello World!
                mode: 'cors',
                cache: 'default' };
 
-var request = new Request('http://localhost:9000');
+var request = new Request('http://localhost:9000/api/system/ping');
     fetch(request)
   .then(response => {
     if (response.status === 200) {
+      console.debug(response.json());
       return response.json();
     } else {
       throw new Error('Something went wrong on api server!');
