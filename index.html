@@ -6,14 +6,10 @@
 Hello World!
 </body>
   <script>
-    var monInit = { method: 'GET',
-               headers: {
-                   'Content-Type': 'image/jpeg'
-               },
-               mode: 'cors',
-               cache: 'default' };
+    var init = { method: 'GET',
+               mode: 'no-cors'};
 
-var request = new Request('http://localhost:9000/api/system/ping');
+var request = new Request('http://localhost:9000/api/system/ping', init);
     fetch(request)
   .then(response => {
     if (response.status === 200) {
